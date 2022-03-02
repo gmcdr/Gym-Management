@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import com.blackroots.admin.enums.Sexo;
 
@@ -37,6 +38,12 @@ public class Student implements Serializable {
 		private String altura;
 		
 		private String peso;
+		
+		@ManyToOne
+		private Adress adress;
+		
+		@ManyToOne
+		private Payment payment;
 		
 		public Student(Long codAluno, String nome, String sobrenome, String faixa, String data_nasc, String email,
 				String tel, Sexo sexo, String cpf, String altura, String peso) {
@@ -139,6 +146,15 @@ public class Student implements Serializable {
 
 		public void setPeso(String peso) {
 			this.peso = peso;
+		}
+		
+
+		public Adress getAdress() {
+			return adress;
+		}
+
+		public void setAdress(Adress adress) {
+			this.adress = adress;
 		}
 
 		@Override
